@@ -30,13 +30,34 @@ end
 ```
 
 - What is mystery1(5)?
-15
+mystery1(5) = 5 + mystery1(4)
+mystery1(4) = 4 + mystery1(3)
+mystery1(3) = 3 + mystery1(2)
+mystery1(2) = 2 + mystery1(1)
+mystery1(1) = 1
+=> 1 + 2 + 3 + 5 = 15
+
 - What is mystery1(10)?
-55
+mystery1(10) = 10 + mystery1(9)
+mystery1(9) = 9 + mystery1(8)
+mystery1(8) = 8 + mystery1(7)
+mystery1(7) = 7 + mystery1(6)
+mystery1(6) = 6 + mystery1(5)
+mystery1(5) = 5 + mystery1(4)
+mystery1(4) = 4 + mystery1(3)
+mystery1(3) = 3 + mystery1(2)
+mystery1(2) = 2 + mystery1(1)
+mystery1(1) = 1
+=> 10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 = 55
+
 - What is mystery1(0)?
-Error (actual error given: stack level too deep, SystemStackError)
+=> Error - actual error given: stack level too deep, SystemStackError (reason: 0 is greater than the base case 1)
+
 - What is the time complexity of mystery1(n)?
+=> O(n), reason: n steps 
+
 - What is the space complexity of mystery1(n)?
+=> O(n), reason: n stack frames
 
 ### Trace #2
 ```ruby
@@ -50,14 +71,29 @@ end
 ```
 
 - What is mystery2(123)?
-6
+mystery2(123) = 3 + mystery2(12)
+mystery2(12) = 2 + mystery2(1)
+mystery2(1) = 1
+=> 3 + 2 + 1 = 6
+ 
 - What is mystery2(9005)?
-14
+mystery2(9005) = 5 + mystery2(900)
+mystery2(900) = 0 + mystery2(90)
+mystery2(90) = 0 + mystery2(9)
+mystery2(9) = 9
+=> 5 + 0 + 0 + 9 = 14
+
 - What is mystery2(-123)?
-  -123
+=> -123 (reason: -123 < 10)
+
 - What is the time complexity of mystery2(n)?
+=> O(m) where m is the number of digits of n
+
 - What is the space complexity of mystery2(n)?
+=> O(m) where m is the number of digits of n
+
 - _Added Fun: How could we make `mystery2(-123)` work the way we might expect it to work instead of the way it does?_
+=> Take the absolute value of the number we enter, i.e. take out the negative sign
 
 ### Trace #3
 ```ruby
@@ -76,13 +112,32 @@ end
 ```
 
 - What is mystery3(1)?
-100
+mystery3(1) = mystery3(1-1) = mystery3(0) 
+mystery3(0) = 100
+=> 100
+
 - What is mystery3(13)?
-100
+mystery3(13) = mystery3(12)
+mystery3(12) = mystery3(6)
+mystery3(6) = mystery3(3)
+mystery3(3) = mystery3(2)
+mystery3(2) = mystery3(1)
+mystery3(1) = mystery3(0)
+mystery3(0) = 100
+=> 100
+
 - What is mystery3(-6)?
-200
+mystery3(-6) = mystery3(-3) = 200
+mystery3(-3) = mystery3(-4) = 200
+mystery3(-4) = mystery3(-2) = 200
+mystery3(-2) = mystery3(-1) = 200
+mystery3(-1) = 200
+=> 200
+
 - What is the time complexity of mystery3(n)?
+O(|n/2|) ; I'm still confused as to why because without help, I would have said O(n)
 - What is the space complexity of mystery3(n)?
+O(|n/2|); I'm still confused as to why because without help, I would have said O(n)
 
 ### Trace #4
 ```ruby
@@ -96,13 +151,26 @@ end
 ```
 
 - What is mystery4(10, 2)?
-100
+mystery4(10, 2) = 10 * mystery4(10, 1) 
+mystery4(10, 1) = 10 * mystery4(10, 0) 
+mystery4(10, 0) = 1
+=> 1 * 10 * 10 = 100
+
 - What is mystery4(4, 3)?
-64
+mystery4(4, 3) = 4 * mystery4(4, 2) 
+mystery4(4, 2) = 4 * mystery4(4, 1) 
+mystery4(4, 1) = 4 * mystery4(4, 0) 
+mystery4(4, 0) = 1
+=> 1 * 4 * 4 = 64
+
 - What is mystery4(5, 0)?
-1
+mystery4(5,0) = 1
+=> 1
+
 - What is the time complexity of mystery4(b, e)?
+O(e) where e is the value of the second parameter
 - What is the space complexity of mystery4(b, e)?
+O(e) where e is the value of the second parameter
 
 ### Trace #5
 ```ruby
@@ -116,15 +184,39 @@ end
 ```
 
 - What is mystery5("hi")?
-**
-- What is mystery5("")?
-empty string
-- What is mystery5("Hi, there!")?
-**********
-- What is the time complexity of mystery5(s)?
-- What is the space complexity of mystery5(s)?
-- _Added Fun: How could we make only alphabetic characters to be changed to stars?_
+mystery5("hi") = * + mystery5("i")
+mystery5("i") = * + mystery5("")
+mystery5("") = ""
+=> **
 
+- What is mystery5("")?
+mystery5("") = ""
+=> empty string
+
+- What is mystery5("Hi, there!")?
+mystery5("Hi, there!") = * + mystery5("i, there!")
+mystery5("i, there!") = * + mystery5(", there!")
+mystery5(", there!") = * + mystery5(" there!")
+mystery5(" there!") = * + mystery5("there!")
+mystery5("there!") = * + mystery5("here!")
+mystery5("here!") = * + mystery5("ere!") 
+mystery5("ere!") = * + mystery5("re!")
+mystery5("re!") = * + mystery5("e!")
+mystery5("e!") = * + mystery5("!")
+mystery5("!") = * + mystery5("")
+mystery5("") = ""
+=> **********
+
+- What is the time complexity of mystery5(s)?
+O(n) where n is the length of the string, one step per character in the string
+
+- What is the space complexity of mystery5(s)?
+O(n) where n is the length of the string, one step in the stack frame for each recursion
+
+- Added Fun: How could we make only alphabetic characters to be changed to stars?_
+Incorporate an if-then statement that removes non-alphabetic characters before the other if-then statement
+
+# THIS IS LIKE THE REVERSE WORDS METHOD
 ### Trace #6
 ```ruby
 def mystery6(s)
@@ -141,15 +233,35 @@ end
 ```
 
 - What is mystery6("goodnight moon")?
- moon goodnight
-- What is mystery6("Ada Developers Academy")?
- Academy Developers Ada
-- What is mystery6("Hi, there!")?
- there! Hi,
-- What is the time complexity of mystery6(s)?
-- What is the space complexity of mystery6(s)?
-- _Added Fun: How could we make the reversal happen by letter, instead of by word (i.e. Make it so that mystery6("goodnight moon") returned "noom thgindoog")?_
+mystery6("goodnight moon") = mystery6("moon") + " " + "goodnight"
+mystery6("moon") = mystery6("") + " " + "moon"
+mystery6("") = ""
+=> moon goodnight
 
+- What is mystery6("Ada Developers Academy")?
+mystery6("Ada Developers Academy") = mystery6("Developers Academy") + " " + "Ada"
+mystery6("Developers Academy") = mystery6("Academy") + " " + "Developers"
+mystery6("Academy") = mystery6("") + " " + "Academy"
+mystery6("") = ""
+=> Academy Developers Ada
+ 
+ 
+- What is mystery6("Hi, there!")?
+mystery6("Hi, there!") = mystery6("there!") + " " + "Hi,"
+mystery6("there!") = mystery6("") + " " + "there!"
+mystery6("") = ""
+=> there! Hi,
+
+- What is the time complexity of mystery6(s)?
+O(n) where n is the length of the string s because of the until loop that ends up checking every character of the string s
+
+- What is the space complexity of mystery6(s)?
+O(n) where n is the length of the string s because space will have to iterate until the end of the length of the string s
+
+- Added Fun: How could we make the reversal happen by letter, instead of by word (i.e. Make it so that mystery6("goodnight moon") returned "noom thgindoog")?_
+We could iterate through the string s so that it returns one character at a time (the last one of the string) + the method called on the rest of the string
+
+# THIS IS LIKE THE PALINDROME CHECKING METHOD
 ### Trace #7
 ```ruby
 def mystery7(word)
@@ -164,10 +276,23 @@ end
 ```
 
 - What is mystery7("cupcake")?
-false
+mystery7("cupcake") = false
+=> false
+
 - What is mystery7("detected")?
-false
+mystery7("detected") = mystery7("etecte")
+mystery7("etecte") = mystery7("tect")
+mystery7("tect") = mystery7("ec")
+mystery7("ec") = false
+=> false
+
 - What is mystery7("eye")?
-true
+mystery7("eye") = mystery7("y")
+mystery7("y") = true
+=> true
+
 - What is the time complexity of mystery7(word)?
+O(n) where n is the length of the word, we are doing 1/2 n steps but constants don't count 
+
 - What is the space complexity of mystery7(word)?
+O(n) where n is the length of the word, same but for stack frames

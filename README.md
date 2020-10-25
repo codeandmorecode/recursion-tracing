@@ -23,8 +23,11 @@ end
 ```
 
 - What is mystery1(5)?
+15
 - What is mystery1(10)?
+55
 - What is mystery1(0)?
+Error (actual error given: stack level too deep, SystemStackError)
 - What is the time complexity of mystery1(n)?
 - What is the space complexity of mystery1(n)?
 
@@ -40,8 +43,11 @@ end
 ```
 
 - What is mystery2(123)?
+6
 - What is mystery2(9005)?
+14
 - What is mystery2(-123)?
+  -123
 - What is the time complexity of mystery2(n)?
 - What is the space complexity of mystery2(n)?
 - _Added Fun: How could we make `mystery2(-123)` work the way we might expect it to work instead of the way it does?_
@@ -63,8 +69,11 @@ end
 ```
 
 - What is mystery3(1)?
+100
 - What is mystery3(13)?
+100
 - What is mystery3(-6)?
+200
 - What is the time complexity of mystery3(n)?
 - What is the space complexity of mystery3(n)?
 
@@ -80,8 +89,11 @@ end
 ```
 
 - What is mystery4(10, 2)?
+100
 - What is mystery4(4, 3)?
+64
 - What is mystery4(5, 0)?
+1
 - What is the time complexity of mystery4(b, e)?
 - What is the space complexity of mystery4(b, e)?
 
@@ -97,8 +109,11 @@ end
 ```
 
 - What is mystery5("hi")?
+**
 - What is mystery5("")?
+empty string
 - What is mystery5("Hi, there!")?
+**********
 - What is the time complexity of mystery5(s)?
 - What is the space complexity of mystery5(s)?
 - _Added Fun: How could we make only alphabetic characters to be changed to stars?_
@@ -119,8 +134,11 @@ end
 ```
 
 - What is mystery6("goodnight moon")?
+ moon goodnight
 - What is mystery6("Ada Developers Academy")?
+ Academy Developers Ada
 - What is mystery6("Hi, there!")?
+ there! Hi,
 - What is the time complexity of mystery6(s)?
 - What is the space complexity of mystery6(s)?
 - _Added Fun: How could we make the reversal happen by letter, instead of by word (i.e. Make it so that mystery6("goodnight moon") returned "noom thgindoog")?_
@@ -139,7 +157,10 @@ end
 ```
 
 - What is mystery7("cupcake")?
+false
 - What is mystery7("detected")?
+false
 - What is mystery7("eye")?
+true
 - What is the time complexity of mystery7(word)?
 - What is the space complexity of mystery7(word)?

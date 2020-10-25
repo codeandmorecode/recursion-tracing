@@ -3,12 +3,19 @@
 ## Definitions
 Define the following: 
 - Recursion
+A method of solving a problem where the solution depends on solutions to smaller instances of the same problem
 - Recursive Case
+Inputs for which the program recurs (calls itself)
 - Base Case
+The terminating scenario in recursion that does not use recursion to produce an answer
 - Activation Chain/Function Call Stack
+A stack data structure that stores information about the active subroutines of a program
 - Activation Record/Function Call
+A request made by a program or script that performs a predetermined function
 - Infinite Recursion/Stack Overflow/Stack too deep
+Any recursion that continues without end
 - Tail Recursion
+The use of a tail call (a function is called as the last act of another function) to perform a recursive function
 
 ## Tracing through a recursive method. Time & Space complexity.
 ### Trace #1

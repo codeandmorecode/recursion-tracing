@@ -302,6 +302,32 @@ end
 # - Added Fun: How could we make the reversal happen by letter, instead of by word (i.e. Make it so that mystery6("goodnight moon") returned "noom thgindoog")?_
 # We could iterate through the string s so that it returns one character at a time (the last one of the string) + the method called on the rest of the string
 
+# - What is mystery6("goodnight moon")?
+# mystery6("goodnight moon") = mystery6("moon") + " " + "goodnight"
+
+# mystery6("moon") = mystery6("") + " " + "moon"
+# mystery6("") = ""
+# => moon goodnight
+
+# - What is mystery6("Ada Developers Academy")?
+# mystery6("Ada Developers Academy") = mystery6("Developers Academy") + " " + "Ada"
+# mystery6("Developers Academy") = mystery6("Academy") + " " + "Developers"
+# mystery6("Academy") = mystery6("") + " " + "Academy"
+# mystery6("") = ""
+# => Academy Developers Ada
+
+# - What is mystery6("Hi, there!")?
+# mystery6("Hi, there!") = mystery6("there!") + " " + "Hi,"
+# mystery6("there!") = mystery6("") + " " + "there!"
+# mystery6("") = ""
+# => there! Hi,
+
+# - What is the time complexity of mystery6(s)?
+# O(n) where n is the length of the string s because of the until loop that ends up checking every character of the string s
+
+# - What is the space complexity of mystery6(s)?
+# O(n) where n is the length of the string s because space will have to iterate until the end of the length of the string s
+
 # THIS IS LIKE THE PALINDROME CHECKING METHOD
 # Trace #7
 
